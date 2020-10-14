@@ -27,7 +27,7 @@ public class App {
 			menu.mostrarMenu();
 			escolha = controle.opcao();
 			
-			
+
 			if (escolha == 1) {
 				System.out.println("Por favor insira o primeiro nome do cliente:");
 				String nome = controle.texto();
@@ -35,12 +35,28 @@ public class App {
 				String sobrenome = controle.texto();
 				System.out.println("Por favor insira o telefone:");
 				String telefone = controle.texto();
-				System.out.println("Por favor insira a data de nascimento :");
+				System.out.println("Por favor insira a data de nascimento:");
 				String nasc = controle.texto();
-				System.out.println("Por favor insira o genero:");
+				System.out.println("Por favor insira o gênero");
 				String genero = controle.texto();
 				Cliente c = new Cliente(nome, sobrenome, telefone, nasc, genero);
 				cadastros.adicionarCadastro(c);
+			}
+			
+			
+			if (escolha == 2) {
+				cadastros.getCadastros();
+				System.out.println("Digite o nome do cliente que deseja editar: ");
+				String nome_completo = controle.texto();
+				cadastros.editar(nome_completo);
+			}
+			
+			
+			if (escolha == 3) {
+				cadastros.getCadastros();
+				System.out.println("Digite o nome do cliente que deseja remover: ");
+				String nome_completo = controle.texto();
+				cadastros.remover(nome_completo);
 			}
 			
 			
@@ -70,8 +86,19 @@ public class App {
 			}
 			
 			
-			if(escolha == 6) {
+			if (escolha == 6) {
 				cadastros.carregar();
+			}
+			
+			if (escolha == 7) {
+				cadastros.relatório();
+			}
+			
+			if (escolha == 8) {
+				cadastros.getCadastros();
+				System.out.println("Digite o nome do cliente que deseja adicionar ou remover produtos e/ou serviços: ");
+				String nome = controle.texto();
+				cadastros.alterarProdServ(nome);
 			}
 		}
 		System.out.println("Obrigado por utilizar a agenda!");

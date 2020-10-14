@@ -19,7 +19,7 @@ public class Cliente implements Serializable {
 		this.sobrenome = sobrenome;
 		this.telefone = telefone;
 		this.nasc = nasc;
-		this.genero = genero;
+		this.genero = genero.substring(0, 1).toUpperCase();
 	}
 	
 	private String nome;
@@ -30,13 +30,6 @@ public class Cliente implements Serializable {
 	private List<String> produtos = new ArrayList<String>();
 	private List<String> servicos = new ArrayList<String>();
 	
-	/*@Override
-	public String toString() {
-		String nsobre = "Nome: " + this.nome + " " + this.sobrenome;
-		String tel = "Telefone: (" + this.telefone.substring(0, 2) + ")" + this.telefone.substring(2, this.telefone.length());
-		
-	}
-	*/
 	
 	public String getNome() {
 		return nome;
